@@ -1,0 +1,70 @@
+<router-outlet></router-outlet>
+<ul>
+  <li style="float:right"><a class="active"><img src="notification.png"></a></li>
+  <li style="float:right"><a class="active"><img src="notification.png"></a></li>
+  <li style="float:right"><a class="active"><img src="notification.png"></a></li>
+</ul>
+
+
+<div class="form-group col-md-12">
+  <table>
+    <tbody>
+      <tr>
+  <th><div ><select  class="form-control">
+    <option>All Categories</option>
+    <option>Plumbing</option>
+    <option>Electrical</option>
+    <option>Security Services</option>
+    <option>Pest Control​</option>
+    <option>Security Services</option>
+    <option>Pest Control​</option>
+    <option>Plant Maintenance</option>
+    <option>Appliance Service​</option>
+  </select></div></th>
+
+  <input type="text"  placeholder="Enter Keyword for filter result" id="searchedKeyword" [(ngModel)]="searchedKeyword"> <button style="position: absolute;
+  top: 7%;
+  left: 30%;" type="button" (click)="startService()"><i class="fa fa-microphone" style="font-size:34px"></i></button></tr>
+  <div style="display: none;" class="card bg-light mt-2">
+    <p class="text-uppercase text-danger mt-3">{{text}}</p>
+  </div>
+</tbody>
+  </table>
+</div>
+
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>Category</th>
+          <th>SubCategory</th>
+          <th>Location</th>
+          <th>Rating</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let item of filterResultDataSet | filter:searchedKeyword">
+          <td>{{item.category}}</td>
+          <td>{{item.subCategory}}</td>
+          <td>{{item.Location}}</td>
+          <td>{{item.rating}}</td>
+      </tr>
+  </tbody>
+</table>
+<div class="footer">
+ 
+      <div style="float: left;">
+
+        <b  style="color:black;padding-right: 2em;font-weight: lighter;">About</b>
+        <b style="color:black;padding-right: 2em;font-weight: lighter;">Advertising</b>
+        <b style="color:black;padding-right: 2em;font-weight: lighter;">Business</b>
+        <b style="color:black;padding-right: 2em;font-weight: lighter;">How Search Work</b>
+      </div>
+
+      <div style="float: right;">
+        <b  style="color:black;padding-right: 2em;font-weight: lighter;">Privacy</b>
+        <b style="color:black;padding-right: 2em;font-weight: lighter;">Terms</b>
+        <b style="color:black;padding-right: 2em;font-weight: lighter;">Policy</b>
+      </div>
+  </div>
+  
+
