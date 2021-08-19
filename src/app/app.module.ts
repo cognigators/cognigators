@@ -22,6 +22,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeSearchComponent } from './components/home-search/home-search.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+import { HttpClientModule } from '@angular/common/http';
+import { MarkerService } from './services/marker.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,9 +43,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MarkerService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
