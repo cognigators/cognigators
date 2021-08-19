@@ -19,7 +19,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 /* Components */
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
-import { HomeSearchComponent } from './home-search/home-search.component';
+import { HomeSearchComponent } from './components/home-search/home-search.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
