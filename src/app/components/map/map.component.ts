@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
-import * as L from 'leaflet';
 import { MarkerService } from 'src/app/services/marker.service';
+import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 
 const iconRetinaUrl = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
@@ -52,7 +52,14 @@ export class MapComponent implements AfterViewInit {
       lineOptions: {styles: [{color: '#3498DB', weight: 4}]},
     }).addTo(this.map);
 
-    document.getElementsByClassName('leaflet-routing-container leaflet-bar leaflet-routing-collapsible leaflet-control').item(0).replaceWith('');
+    if(document.getElementsByClassName('leaflet-routing-container leaflet-bar leaflet-routing-collapsible leaflet-control').item(0))
+    {
+      document.getElementsByClassName('leaflet-routing-container leaflet-bar leaflet-routing-collapsible leaflet-control').item(0).replaceWith('');
+    }
+    if(document.getElementsByClassName('leaflet-routing-container leaflet-bar leaflet-control').item(0))
+    {
+      document.getElementsByClassName('leaflet-routing-container leaflet-bar leaflet-control').item(0).replaceWith('');
+    }
   }
 
   constructor(private markerService:MarkerService) { }

@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* Angular Flex Layout */
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatDialogModule } from '@angular/material/dialog';
 
 /* Components */
 import { LogInComponent } from './components/log-in/log-in.component';
@@ -24,6 +25,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from './services/marker.service';
+import { ServiceProviderModalComponent } from './components/service-provider-modal/service-provider-modal.component';
+import { MapComponent } from './components/map/map.component';
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import { MarkerService } from './services/marker.service';
     RegisterComponent,
     RegisterComponent,
     LogInComponent,
-    HomeSearchComponent
+    HomeSearchComponent,
+    ServiceProviderModalComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { MarkerService } from './services/marker.service';
     FormsModule,
     FlexLayoutModule,
     Ng2SearchPipeModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [MarkerService],
   bootstrap: [AppComponent],
