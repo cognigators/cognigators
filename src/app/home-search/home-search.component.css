@@ -11,10 +11,10 @@
 
 .has-search .form-control {
   padding-left: 2.375rem;
-  width: 50%;
+  width: 75%;
 }
 
-.has-search .form-control-feedback {
+.test {
   position: absolute;
   z-index: 2;
   width: 2.375rem;

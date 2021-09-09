@@ -12,6 +12,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 /* FormsModule */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 /* Angular Flex Layout */
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -39,6 +40,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule,
+    HttpClientModule,
     Ng2SearchPipeModule
   ],
   providers: [],
