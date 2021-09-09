@@ -16,12 +16,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 /* Angular Flex Layout */
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatDialogModule } from '@angular/material/dialog';
 
 /* Components */
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
-import { HomeSearchComponent } from './home-search/home-search.component';
+import { HomeSearchComponent } from './components/home-search/home-search.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+import { HttpClientModule } from '@angular/common/http';
+import { MarkerService } from './services/marker.service';
+import { ServiceProviderModalComponent } from './components/service-provider-modal/service-provider-modal.component';
+import { MapComponent } from './components/map/map.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +37,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     RegisterComponent,
     RegisterComponent,
     LogInComponent,
-    HomeSearchComponent
+    HomeSearchComponent,
+    ServiceProviderModalComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +49,13 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule,
+    Ng2SearchPipeModule,
+    HttpClientModule,
+    MatDialogModule
     HttpClientModule,
     Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [MarkerService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

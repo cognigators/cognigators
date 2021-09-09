@@ -1,0 +1,20 @@
+mat-grid-tile {
+    background: white;
+    border: none;
+  }
+#spdetails
+{
+    background-color: whitesmoke;
+}
+
+#spMap
+{
+    display: flex;
+    align-items: center;
+    height:200px;
+    width: 700px;
+}
+
+.example-chip-list {
+  width: 100%;
+}

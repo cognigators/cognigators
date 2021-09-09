@@ -1,0 +1,31 @@
+<mat-dialog-content class="mat-typography">
+<div class="login-wrapper" fxLayoutAlign="center center">
+<mat-card id="spdetails">
+   <h2>Service Provider Details:</h2>
+   <mat-form-field class="example-chip-list">
+      <mat-label>Name:</mat-label>
+      <input type="text" value="Amitabha Ghosh" matInput readonly> 
+   </mat-form-field>
+   <mat-form-field class="example-chip-list">
+      <mat-label>Address:</mat-label>
+      <input type="text" value="123,test avenue" matInput readonly> 
+   </mat-form-field>
+   <mat-form-field class="example-chip-list">
+      <mat-label>Vaccinated?:</mat-label>
+      <input type="text" value="Yes" matInput readonly> 
+   </mat-form-field>
+   <mat-form-field class="example-chip-list">
+      <mat-label>Categories:</mat-label>
+      <mat-chip-list #chipList aria-label="Fruit selection">
+         <mat-chip *ngFor="let category of categories"> {{category.name}} </mat-chip>
+      </mat-chip-list>
+   </mat-form-field> 
+   <button mat-raised-button color="primary" (click)="showSPMap()">{{btnText}}</button>
+   <br>
+   <br>
+   <mat-card id="spMap" *ngIf="showMap">
+      <app-map></app-map>
+   </mat-card>   
+</mat-card>
+</div>
+</mat-dialog-content>
