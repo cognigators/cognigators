@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 declare const webkitSpeechRecognition: any;
 
@@ -56,9 +59,15 @@ export class HomeSearchComponent implements OnInit {
       rating:'4'
     }
   ]
- 
+  myControl = new FormControl();
+  options: string[] = ['France', 'SPAIN', 'test4','Plant Maintenance','Appliance Service'];
+  filteredOptions: Observable<string[]>;
   
   ngOnInit(): void {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
     this.init();
   }
   
@@ -113,5 +122,14 @@ export class HomeSearchComponent implements OnInit {
   wordConcat(): void {
     this.text = this.text + this.tempWords + ' ';
     this.tempWords = ' ';
+  }
+  
+
+ 
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 }
