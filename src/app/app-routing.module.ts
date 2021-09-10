@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
-import { HomeSearchComponent } from './home-search/home-search.component';
+import { HomeSearchComponent } from './components/home-search/home-search.component';
 import {AboutComponent} from './about/about.component';
 import {SettingsComponent} from './settings/settings.component';
 import {PrivacyComponent} from './privacy/privacy.component';
