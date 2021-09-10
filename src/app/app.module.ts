@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from './services/marker.service';
 import { ServiceProviderModalComponent } from './components/service-provider-modal/service-provider-modal.component';
 import { MapComponent } from './components/map/map.component';
+import { SpQueueModalComponent } from './components/sp-queue-modal/sp-queue-modal.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MapComponent } from './components/map/map.component';
     LogInComponent,
     HomeSearchComponent,
     ServiceProviderModalComponent,
-    MapComponent
+    MapComponent,
+    SpQueueModalComponent
   ],
   imports: [
     BrowserModule,
