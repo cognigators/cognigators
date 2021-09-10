@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import {ApiCallService} from '../../api-call.service';
 
 declare const webkitSpeechRecognition: any;
 
@@ -8,7 +12,7 @@ declare const webkitSpeechRecognition: any;
   styleUrls: ['./home-search.component.css']
 })
 export class HomeSearchComponent implements OnInit {
-
+  categoryList:any;
   searchedKeyword: string;
   error = true;
   gSearch:any;
@@ -17,7 +21,26 @@ export class HomeSearchComponent implements OnInit {
   isStoppedSpeechRecog = false;
   text = '';
   tempWords: any;
-
+  options: string[];
+  constructor(private apiCallService: ApiCallService) { }
+  getCategoryList():any {
+    //this.apiCallService.getAll('https://localhost:5001/api/SubCategories/GetSubCategories')
+    this.apiCallService.getAll('http://localhost:5000/api/SubCategories/GetSubCategories')
+      .subscribe(
+        data => {
+       var d=data.map(x=>x.catMaster).toString();
+                 this.options=d.split(',')
+        console.log(data);
+        console.log(this.options);
+        this.filteredOptions = this.myControl.valueChanges.pipe(
+          startWith(''),
+          map(value => this._filter(value))
+        );
+        },
+        error => {
+          console.log(error);
+        });
+  }
   filterResultDataSet = [
     {
       category: 'Plumbing',
@@ -56,12 +79,24 @@ export class HomeSearchComponent implements OnInit {
       rating:'4'
     }
   ]
- 
+  myControl = new FormControl();
+  filteredOptions: Observable<string[]>;
   
   ngOnInit(): void {
+    var data=this.getCategoryList();
+
     this.init();
   }
-  
+  loadCategory():any{
+    this.apiCallService.getAll('http://localhost:5000/api/Search/GetCategorySP?category=Elec')
+    .subscribe(
+      data => {
+    alert('redirect to search grid');
+      },
+      error => {
+        console.log(error);
+      });
+  }
   startService(): void {
     this.text = '';
     this.start();
@@ -97,6 +132,7 @@ export class HomeSearchComponent implements OnInit {
         } else {
           this.stop();
              this.searchedKeyword=this.text.trim();
+
           //window.open('https://www.youtube.com/channel/UCBOEbPRBeq0pJJnUlyNrz2g');
           this.error = true;
         }
@@ -113,5 +149,14 @@ export class HomeSearchComponent implements OnInit {
   wordConcat(): void {
     this.text = this.text + this.tempWords + ' ';
     this.tempWords = ' ';
+  }
+  
+
+ 
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 }

@@ -12,6 +12,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 /* FormsModule */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 /* Angular Flex Layout */
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -23,7 +24,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeSearchComponent } from './components/home-search/home-search.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
-import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from './services/marker.service';
 import { ServiceProviderModalComponent } from './components/service-provider-modal/service-provider-modal.component';
 import { MapComponent } from './components/map/map.component';
