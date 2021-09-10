@@ -17,9 +17,9 @@ top: 89px;
 <div class="main">
   
   <!-- Actual search box -->
- 
+  
   <div class="form-group has-search">
-    <span  style ="right: 60.5%;" class="fa fa-search" (click)="startService()"></span>
+    <span  style ="right: 66%;" class="fa fa-search test" (click)="loadCategory()"></span>
     <input type="text" class="form-control" style="display: block;
     margin-left: auto;
     margin-right: auto;
@@ -34,13 +34,16 @@ top: 89px;
       </mat-option>
     
     </mat-autocomplete>
-    <span style="right: 38%;" class="fa fa-microphone  form-control-feedback" (click)="startService()"></span>
+    
+    <div (click)="startService()">
+      <span style="right: 32%;" class="fa fa-microphone  test" ></span>
+    </div>
    <div style="display: none;" class="card bg-light mt-2">
     <p class="text-uppercase text-danger mt-3">{{text}}</p>
   </div>
 
   </div>
-
+  
 </div>
 
 

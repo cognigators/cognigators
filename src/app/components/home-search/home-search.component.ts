@@ -24,7 +24,8 @@ export class HomeSearchComponent implements OnInit {
   options: string[];
   constructor(private apiCallService: ApiCallService) { }
   getCategoryList():any {
-    this.apiCallService.getAll('https://localhost:5001/api/SubCategories/GetSubCategories')
+    //this.apiCallService.getAll('https://localhost:5001/api/SubCategories/GetSubCategories')
+    this.apiCallService.getAll('http://localhost:5000/api/SubCategories/GetSubCategories')
       .subscribe(
         data => {
        var d=data.map(x=>x.catMaster).toString();
@@ -86,7 +87,16 @@ export class HomeSearchComponent implements OnInit {
 
     this.init();
   }
-  
+  loadCategory():any{
+    this.apiCallService.getAll('http://localhost:5000/api/Search/GetCategorySP?category=Elec')
+    .subscribe(
+      data => {
+    alert('redirect to search grid');
+      },
+      error => {
+        console.log(error);
+      });
+  }
   startService(): void {
     this.text = '';
     this.start();
