@@ -28,6 +28,8 @@ import { MarkerService } from './services/marker.service';
 import { ServiceProviderModalComponent } from './components/service-provider-modal/service-provider-modal.component';
 import { MapComponent } from './components/map/map.component';
 import { SpQueueModalComponent } from './components/sp-queue-modal/sp-queue-modal.component';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { SpQueueModalComponent } from './components/sp-queue-modal/sp-queue-moda
     FlexLayoutModule,
     Ng2SearchPipeModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
+    
   ],
   providers: [MarkerService],
   bootstrap: [AppComponent],
