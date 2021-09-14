@@ -95,3 +95,21 @@ li a:hover:not(.active) {
   }
 
 .gray { background-color: #f5f5f5 }
+.mat-table
+{
+  background-color:transparent!important;  
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5em;
+}
+table tr:last-child td /*To remove the last border*/
+{
+  border-bottom:0 solid
+}
+
+.headerBgColor{
+  background-color: #3949ab;
+}
+
