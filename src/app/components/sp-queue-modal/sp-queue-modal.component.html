@@ -215,7 +215,7 @@
                 *matHeaderRowDef="['header-row-first-group'];">
             </mat-header-row>
                 <mat-header-row
-                    *matHeaderRowDef="['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost']">
+                    *matHeaderRowDef="['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost'];sticky: true">
                 </mat-header-row>
                 <mat-row
                     *matRowDef="let row; let even = even; columns: ['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost']"
