@@ -8,6 +8,8 @@ import {AboutComponent} from './about/about.component';
 import {SettingsComponent} from './settings/settings.component';
 import {PrivacyComponent} from './privacy/privacy.component';
 import {TermsComponent} from './terms/terms.component';
+import { ServiceProviderModalComponent } from './components/service-provider-modal/service-provider-modal.component';
+import { MapComponent } from './components/map/map.component';
 
 
 const routes: Routes = [
@@ -17,10 +19,12 @@ const routes: Routes = [
   { path: 'search', component: HomeSearchComponent },
   { path: 'sp-queue', component:SpQueueModalComponent},
   { path: 'search', component: HomeSearchComponent },
-  {path:'about' , component:AboutComponent },
-  {path:'settings' , component:SettingsComponent },
-  {path:'privacy' ,component:PrivacyComponent},
-  {path:'terms', component:TermsComponent}
+  { path: 'about' , component: AboutComponent },
+  { path: 'settings' , component: SettingsComponent },
+  { path: 'privacy' ,component: PrivacyComponent},
+  { path: 'terms', component: TermsComponent},
+  { path: 'spmodal', component: ServiceProviderModalComponent},
+  { path: 'map', component: MapComponent}
 ];
 
 @NgModule({
