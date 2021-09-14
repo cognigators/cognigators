@@ -37,14 +37,23 @@
     bottom: 0;
     width: 100%;
     border: 1px solid rgba(121, 121, 121, 0);
-  background-color: #00405c;
-  box-sizing: border-box;
-  font-family: 'Arial Regular', 'Arial', sans-serif;
-  color: #f1f2f3;
-  text-align: center;
-  line-height: normal;
+    background-color: #00405c;
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #f1f2f3;
+    text-align: center;
+    line-height: normal;
     height: 5%;
   }
+
+  .chatButton
+  {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    border: 1px solid rgba(121, 121, 121, 0);
+  }
+
   .header {
     position: fixed;
     left: 0;
