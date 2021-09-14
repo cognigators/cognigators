@@ -5,6 +5,8 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { ServiceProviderModalComponent } from '../service-provider-modal/service-provider-modal.component';
 
 @Component({
   selector: 'app-sp-queue-modal',
@@ -27,7 +29,7 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
   //pageEvent: PageEvent; 
   text = '';
 
-  constructor(private apiCallService: ApiCallService) { }
+  constructor(private apiCallService: ApiCallService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getCategoryList();
@@ -67,17 +69,10 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
     this.isLoading = false;
   }
 
-  // isAllSelected() {
-  //   const numSelected = this.selection.selected.length;
-  //   const numRows = this.dataSource.data.length;
-  //   return numSelected == numRows;
-  // }
-
-  // /** Selects all rows if they are not all selected; otherwise clear selection. */
-  // masterToggle() {
-  //   this.isAllSelected() ?
-  //       this.selection.clear() :
-  //       this.dataSource.data.forEach(row => this.selection.select(row));
-  // }
+  openSPDialog(): void
+  {
+    this.dialog.open(ServiceProviderModalComponent, {
+    });
+  }
 
 }

@@ -81,6 +81,12 @@ export class HomeSearchComponent implements OnInit {
   ]
   myControl = new FormControl();
   filteredOptions: Observable<string[]>;
+
+  onChatButtonClick()
+  {
+    window.open( 
+      "http://localhost:3000/", "_blank");
+  }
   
   ngOnInit(): void {
     var data=this.getCategoryList();
