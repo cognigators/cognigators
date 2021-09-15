@@ -1,5 +1,5 @@
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-service-provider-modal',
@@ -9,17 +9,20 @@ import {Component, OnInit} from '@angular/core';
 export class ServiceProviderModalComponent implements OnInit {
 
   showMap = false;
-  btnText = "Load Map";
-  selectable = true;
-  removable = true;
-  addOnBlur = true;
+  btnText = "Locate SP";
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   categories: any[] = [
     {name: 'Electronics'},
     {name: 'Electricals'},
     {name: 'Plumbing'},
   ];
-  
+  @Input() spName = ''; 
+  @Input() spCategories: string[]
+  @Input() spAddress: string;
+  @Input() spLatLong: string;
+  @Input() spRatings: string;
+  @Input() spVacinationStatus: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -28,6 +31,6 @@ export class ServiceProviderModalComponent implements OnInit {
   showSPMap()
   {
     this.showMap = !this.showMap;
-    this.btnText = !this.showMap ? "Load Map" : "Hide Map";
+    this.btnText = !this.showMap ? "Locate SP" : "Hide Map";
   }
 }
