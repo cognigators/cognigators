@@ -4,56 +4,19 @@
 
     </div>
 </div>
-<div style="visibility:hidden;">
-    <input type="text" placeholder="Enter Keyword for filter result" id="searchedKeyword" [(ngModel)]="searchedKeyword">
 
-
-    <div style="display: none;" class="card bg-light mt-2">
-        <p class="text-uppercase text-danger mt-3">{{text}}</p>
-    </div>
-</div>
-<div style="visibility:hidden;">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Select</th>
-                <th>SP ID</th>
-                <th>Name</th>
-                <th>Rating</th>
-                <th>Service Rate<br />*(in Rs.)</th>
-                <th>Category Name</th>
-                <th>Subcategory Name</th>
-                <th>Time In</th>
-                <th>Time Out</th>
-                <th>Total Cost<br />*(in Rs.)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- <tr *ngFor="let item of filterResultDataSet | filter:searchedKeyword; let i = index">
-            <td><input type="checkbox" [(ngModel)]="item[i]"> </td>
-            <td>{{item.sp_id}}</td>
-            <td>{{item.sp_name}}</td>
-            <td>{{item.sp_rating}}</td>
-            <td>{{item.misc_cost}}</td>
-            <td>{{item.s_category_name}}</td>
-            <td>{{item.s_subcategory_name}}</td>
-            <td>{{item.time_in | date:'d/M/yy, h:mm a'}}</td>
-            <td>{{item.time_out | date:'d/M/yy, h:mm a'}}</td>
-            <td>{{item.totalCost}}</td>
-        </tr> -->
-        </tbody>
-    </table>
-</div>
-<section fxLayoutAlign="space-around">
+<section >
 
     <mat-card>
         <mat-card-content>
+            
             <div class="example-header" fxLayout fxLayoutAlign="end center">
                 <mat-form-field>
                     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
                 </mat-form-field>
             </div>
-            <mat-table #firstTable #firstTableSort="matSort" [dataSource]="filterResultDataSet" [hidden]="!isLoading"
+            <div class="example-container mat-elevation-z8">
+            <mat-table #firstTable #firstTableSort="matSort" class="mat-elevation-z8" [dataSource]="filterResultDataSet" [hidden]="!isLoading"
                 matSort>
 
                 <!-- <ng-container matColumnDef="select">
@@ -85,7 +48,7 @@
                 <!-- Age Definition -->
                 <ng-container matColumnDef="sp_name">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.sp_name}} </mat-cell>
+                    <mat-cell *matCellDef="let row"> <a href="javascript:void(0);" (click)="openSPDialog();">{{row.sp_name}}</a></mat-cell>
                 </ng-container>
 
                 <!-- Title Definition -->
@@ -96,7 +59,8 @@
 
                 <ng-container matColumnDef="misc_cost">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Service&nbsp;Rate in&nbsp;Rs.</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> &#8377;{{row.misc_cost}} </mat-cell>
+                    <!-- <mat-cell *matCellDef="let row"> &#8377;{{row.misc_cost}} </mat-cell> -->
+                    <mat-cell *matCellDef="let row">{{row.misc_cost}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="s_category_name">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Category Name</mat-header-cell>
@@ -185,8 +149,9 @@
                 </ng-container>
 
                 <ng-container matColumnDef="misc_cost">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Service Rate</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> &#8377;{{row.misc_cost}} </mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Service&nbsp;Rate in&nbsp;Rs.</mat-header-cell>
+                    <!-- <mat-cell *matCellDef="let row"> &#8377;{{row.misc_cost}} </mat-cell> -->
+                    <mat-cell *matCellDef="let row"> {{row.misc_cost}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="s_category_name">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Category Name</mat-header-cell>
@@ -206,8 +171,9 @@
                     <mat-cell *matCellDef="let row"> {{row.time_out | date:'d/M/yy, h:mm a'}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="totalCost">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Total Cost </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> &#8377;{{row.totalCost}} </mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Total&nbsp;Cost in&nbsp;Rs.</mat-header-cell>
+                    <!-- <mat-cell *matCellDef="let row"> &#8377;{{row.totalCost}} </mat-cell> -->
+                    <mat-cell *matCellDef="let row"> {{row.totalCost}} </mat-cell>
                 </ng-container>
 
                 <!-- Header and Row Declarations -->
@@ -226,8 +192,8 @@
                     [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
                 </mat-paginator> -->
             </mat-table>
-
-            <mat-paginator [pageSizeOptions]="[2,5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
             <div>&nbsp;</div>
             <div style="align-items: center;">
                 <!-- <button mat-flat-button (click)="gridBack()">Back to Queue</button>
