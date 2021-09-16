@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiCallService } from '../../api-call.service';
 import { MatSort, MatSortModule } from '@angular/material/sort';
@@ -11,7 +11,8 @@ import { ServiceProviderModalComponent } from '../service-provider-modal/service
 @Component({
   selector: 'app-sp-queue-modal',
   templateUrl: './sp-queue-modal.component.html',
-  styleUrls: ['./sp-queue-modal.component.css']
+  styleUrls: ['./sp-queue-modal.component.css']/*,
+  encapsulation: ViewEncapsulation.None*/
 })
 export class SpQueueModalComponent implements OnInit, AfterViewInit {
   // public dataSource: any;    
