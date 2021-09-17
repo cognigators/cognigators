@@ -127,6 +127,6 @@ table tr:last-child td /*To remove the last border*/
   overflow: auto;
 } 
 .mat-table-sticky {
-  background: #808c97;
-  opacity: 1;
+    opacity: 1;
+  
 }
