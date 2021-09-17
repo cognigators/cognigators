@@ -70,9 +70,15 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
     this.isLoading = false;
   }
 
-  openSPDialog(): void
+  openSPDialog(row): void
   {
+    var rowData = row;
     this.dialog.open(ServiceProviderModalComponent, {
+      data: {
+                spName : row.sp_name,
+                spLocation : row.sp_location,
+                spCategories : row.s_category_name
+            }
     });
   }
 
