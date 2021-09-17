@@ -1,5 +1,6 @@
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-service-provider-modal',
@@ -17,13 +18,17 @@ export class ServiceProviderModalComponent implements OnInit {
     {name: 'Plumbing'},
   ];
   @Input() spName = ''; 
-  @Input() spCategories: string[]
+  @Input() spCategories: any[] = [{name: ''}];
   @Input() spAddress: string;
   @Input() spLatLong: string;
   @Input() spRatings: string;
   @Input() spVacinationStatus: boolean;
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any ) { 
+    this.spName = data.spName;
+    this.spAddress = data.spLocation;
+    this.spCategories[0].name = data.spCategories;
+  }
 
   ngOnInit(): void {
   }
