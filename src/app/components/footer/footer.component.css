@@ -1,0 +1,63 @@
+#about-us {
+    width: 116px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgba(121, 121, 121, 0);
+    background-color: #00405c;
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #f1f2f3;
+    text-align: center;
+    line-height: normal;
+  }
+  #terms {
+    width: 116px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgba(121, 121, 121, 0);
+    background-color: #00405c;
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #f1f2f3;
+    text-align: center;
+    line-height: normal;
+  }
+  #privacy {
+    width: 116px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgba(121, 121, 121, 0);
+    background-color: #00405c;
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #f1f2f3;
+    text-align: center;
+    line-height: normal;
+  }
+  #settings {
+    width: 116px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgba(121, 121, 121, 0);
+    background-color: #00405c;
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #f1f2f3;
+    text-align: center;
+    line-height: normal;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border: 1px solid rgba(121, 121, 121, 0);
+    background-color: #00405c;
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #f1f2f3;
+    text-align: center;
+    line-height: normal;
+    height: 5%;
+  }

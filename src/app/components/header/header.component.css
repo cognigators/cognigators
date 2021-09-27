@@ -1,0 +1,18 @@
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: 1px solid rgba(121, 121, 121, 0);
+    background-color: #00405c;
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #f1f2f3;
+    text-align: center;
+    line-height: normal;
+    height: 5%;
+  }
+  img {
+    display: block;
+    width: 24px;
+  }
