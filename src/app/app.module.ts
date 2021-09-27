@@ -30,6 +30,8 @@ import { MapComponent } from './components/map/map.component';
 import { SpQueueModalComponent } from './components/sp-queue-modal/sp-queue-modal.component';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { MatTableModule } from '@angular/material/table';
     HomeSearchComponent,
     ServiceProviderModalComponent,
     MapComponent,
-    SpQueueModalComponent
+    SpQueueModalComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

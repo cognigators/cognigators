@@ -23,6 +23,10 @@ li a:hover:not(.active) {
   background-color: #111;
 }
 
+mat-card{
+  position: inherit;
+}
+
 .active {
   background-color: #04AA6D;
 }
@@ -114,19 +118,17 @@ table tr:last-child td /*To remove the last border*/
 }
 
 .mat-table {
-  overflow: auto;
-  max-height: 400px;
-  
+  overflow: auto; 
 } 
 /* .mat-table {
   width: 100%;
 }*/
 .example-container {
-  height: 400px;
-  max-width: 100%;
   overflow: auto;
 } 
 .mat-table-sticky {
-    opacity: 1;
-  
+    opacity: 1;  
+}
+.example-margin {
+  margin: 0 12px;
 }

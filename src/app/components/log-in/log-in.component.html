@@ -1,3 +1,6 @@
+<div>
+  <app-header></app-header>
+</div>
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
     <mat-card class="box">
@@ -15,8 +18,10 @@
             <input matInput placeholder="Password">
           </mat-form-field>
         </mat-card-content>
-        <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+        <button mat-stroked-button color="accent" class="btn-block" (click)="login()">Log in</button>
       </form>
     </mat-card>
-  
+  </div>
+  <div>
+    <app-footer></app-footer>
   </div>

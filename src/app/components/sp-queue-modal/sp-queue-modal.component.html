@@ -1,44 +1,25 @@
-<div class="header">
-
-    <div>
-
-    </div>
+<div>
+    <app-header></app-header>
 </div>
-
+<div>
 <section >
-
     <mat-card>
         <mat-card-content>
-            
             <div class="example-header" fxLayout fxLayoutAlign="end center">
                 <mat-form-field>
                     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
                 </mat-form-field>
             </div>
             <div class="example-container mat-elevation-z8">
-            <mat-table #firstTable #firstTableSort="matSort" class="mat-elevation-z8" [dataSource]="filterResultDataSet" [hidden]="!isLoading"
-                matSort>
-
-                <!-- <ng-container matColumnDef="select">
-        <th mat-header-cell *matHeaderCellDef>
-          <mat-checkbox (change)="$event ? masterToggle() : null"
-                        [checked]="selection.hasValue() && isAllSelected()"
-                        [indeterminate]="selection.hasValue() && !isAllSelected()">
-          </mat-checkbox>
-        </th>
-        <td mat-cell *matCellDef="let row">
-          <mat-checkbox (click)="$event.stopPropagation()"
-                        (change)="$event ? selection.toggle(row) : null"
-                        [checked]="selection.isSelected(row)">
-          </mat-checkbox>
-        </td>
-      </ng-container> -->
-                <!-- User name Definition -->
-                <!-- Header row first group -->
+            <mat-table #firstTable #firstTableSort="matSort" class="mat-elevation-z8" [dataSource]="filterResultDataSet" [hidden]="!isLoading" matSort>
                 <ng-container matColumnDef="header-row-first-group">
-                    <mat-header-cell *matHeaderCellDef fxLayoutAlign="space-around center" style="background-color:#3f51b5;font-size: 16px;color: seashell;">
+                    <mat-header-cell *matHeaderCellDef fxLayoutAlign="space-around center" style="background-color:#00405c;font-size: 16px;color: seashell;">
                         Service Provider Queue
                     </mat-header-cell>
+                </ng-container>
+                <ng-container matColumnDef="select">
+                    <mat-header-cell *matHeaderCellDef> <mat-checkbox class="example-margin"></mat-checkbox></mat-header-cell>
+                    <mat-cell *matCellDef="let row"> <mat-checkbox class="example-margin" >{{row.select}}</mat-checkbox> </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="sp_id">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> SP ID </mat-header-cell>
@@ -70,62 +51,27 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Sub&nbsp;Category Name </mat-header-cell>
                     <mat-cell *matCellDef="let row"> {{row.s_subcategory_name}} </mat-cell>
                 </ng-container>
-                <!-- <ng-container matColumnDef="time_in">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Time In </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.time_in | date:'d/M/yy, h:mm a'}} </mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="time_out">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Time Out </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.time_out | date:'d/M/yy, h:mm a'}} </mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="totalCost">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Total Cost </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> &#8377;{{row.totalCost}} </mat-cell>
-                </ng-container> -->
-
-                <!-- Header and Row Declarations -->
                 <mat-header-row
                 *matHeaderRowDef="['header-row-first-group'];">
             </mat-header-row>
                 <mat-header-row
-                    *matHeaderRowDef="['sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name'];sticky: true">
+                    *matHeaderRowDef="['select','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name'];sticky: true">
                 </mat-header-row>
                 <mat-row
-                    *matRowDef="let row;let even = even; columns: ['sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name']"
+                    *matRowDef="let row;let even = even; columns: ['select','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name']"
                     [ngClass]="{gray: even}">
                 </mat-row>
-                <!-- <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"
-                    [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
-                </mat-paginator> -->
             </mat-table>
-            <!-- </mat-card-content>
-    
-    </mat-card>
-
-
-            <mat-card>
-                <mat-card-content> -->
             <mat-table #secondTable #secondTableSort="matSort" [dataSource]="filterResultDataSet" [hidden]="isLoading"
                 matSort>
-                <!-- <ng-container matColumnDef="select">
-        <th mat-header-cell *matHeaderCellDef>
-          <mat-checkbox (change)="$event ? masterToggle() : null"
-                        [checked]="selection.hasValue() && isAllSelected()"
-                        [indeterminate]="selection.hasValue() && !isAllSelected()">
-          </mat-checkbox>
-        </th>
-        <td mat-cell *matCellDef="let row">
-          <mat-checkbox (click)="$event.stopPropagation()"
-                        (change)="$event ? selection.toggle(row) : null"
-                        [checked]="selection.isSelected(row)">
-          </mat-checkbox>
-        </td>
-      </ng-container> -->
-                <!-- User name Definition -->
                 <ng-container matColumnDef="header-row-first-group">
-                    <mat-header-cell *matHeaderCellDef fxLayoutAlign="space-around center" style="background-color:#3f51b5;font-size: 14px;color: seashell;">
+                    <mat-header-cell *matHeaderCellDef fxLayoutAlign="space-around center" style="background-color:#00405c;font-size: 14px;color: seashell;">
                         Service Provider Queue
                     </mat-header-cell>
+                </ng-container>
+                <ng-container matColumnDef="select">
+                    <mat-header-cell *matHeaderCellDef> <mat-checkbox class="example-margin"></mat-checkbox></mat-header-cell>
+                    <mat-cell *matCellDef="let row"> <mat-checkbox class="example-margin" >{{row.select}}</mat-checkbox> </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="sr_id">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>SR NO</mat-header-cell>
@@ -181,38 +127,33 @@
                 *matHeaderRowDef="['header-row-first-group'];">
             </mat-header-row>
                 <mat-header-row
-                    *matHeaderRowDef="['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost'];sticky: true">
+                    *matHeaderRowDef="['select','sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost'];sticky: true">
                 </mat-header-row>
                 <mat-row
-                    *matRowDef="let row; let even = even; columns: ['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost']"
+                    *matRowDef="let row; let even = even; columns: ['select','sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost']"
                     [ngClass]="{gray: even}">
-
                 </mat-row>
-                <!-- <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"
-                    [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
-                </mat-paginator> -->
             </mat-table>
         </div>
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
             <div>&nbsp;</div>
             <div style="align-items: center;">
-                <!-- <button mat-flat-button (click)="gridBack()">Back to Queue</button>
-                <button mat-button (click)="gridBack()">Basic</button> -->
                 <button mat-raised-button color="Basic" (click)="gridBack()"> Back to Queue</button> &nbsp;&nbsp;
                 <button mat-flat-button color="primary" (click)="confirmSR()">Confirm SR</button>
 
             </div>
         </mat-card-content>
     </mat-card>
-
 </section>
+</div>
 <div class="footer">
-
     <div>
-
         <b style="padding-right: 18em;font-weight: lighter;" id="about-us">About US</b>
         <b style="padding-right: 18em;font-weight: lighter;" id="terms">Terms</b>
         <b style="padding-right: 18em;font-weight: lighter;" id="privacy">Privacy</b>
         <b style="padding-right: 18em;font-weight: lighter;" id="settings">Settings</b>
     </div>
+</div>
+<div>
+    <app-footer></app-footer>
 </div>

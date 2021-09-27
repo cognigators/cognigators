@@ -7,21 +7,17 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { ServiceProviderModalComponent } from '../service-provider-modal/service-provider-modal.component';
+import { SrDetails } from '../../components/sp-queue-modal/model/SRDetails'
 
 @Component({
   selector: 'app-sp-queue-modal',
   templateUrl: './sp-queue-modal.component.html',
-  styleUrls: ['./sp-queue-modal.component.css']/*,
-  encapsulation: ViewEncapsulation.None*/
+  styleUrls: ['./sp-queue-modal.component.css']
 })
 export class SpQueueModalComponent implements OnInit, AfterViewInit {
-  // public dataSource: any;    
 
-  // public pageSize = 10;
-  // public currentPage = 0;
-  // public totalSize = 0;
-  public filterResultDataSet = new MatTableDataSource<any>([]);
-  public mySecondTableData = new MatTableDataSource<any>([]);
+  public filterResultDataSet = new MatTableDataSource<SrDetails>([]);
+  public mySecondTableData = new MatTableDataSource<SrDetails>([]);
   public isLoading: boolean = true;
   @ViewChild(MatPaginator) private paginator: MatPaginator;
   @ViewChild(MatSort) private sort: MatSort;
@@ -49,10 +45,9 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
     this.mySecondTableData.sort = this.secondTableSort;
   }
   getCategoryList(): any {
-    //this.apiCallService.getAll('https://localhost:5001/api/ServiceRequest/GetSRQueue/user')
     this.apiCallService.getAll('http://localhost:5000/api/ServiceRequest/GetSRQueue/user')
       .subscribe(
-        data => {
+        (data: SrDetails[]) => {
           //this.filterResultDataSet=data
           this.filterResultDataSet.data = data
         },
@@ -61,12 +56,9 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
         });
   }
   gridBack(): any {
-
     this.isLoading = true;
   }
   confirmSR(): any {
-    // if (this.isLoading==="true") { this.isLoading = "false"; }
-    // else { this.isLoading = "true"; }
     this.isLoading = false;
   }
 
