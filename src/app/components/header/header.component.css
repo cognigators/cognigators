@@ -1,6 +1,5 @@
 .header {
     position: fixed;
-    left: 0;
     top: 0;
     width: 100%;
     border: 1px solid rgba(121, 121, 121, 0);
@@ -14,5 +13,20 @@
   }
   img {
     display: block;
+  }
+  .logo
+  {
+    float: left;
     width: 24px;
+  }
+  .logo-people
+  {
+    float: right;
+    width: 35px;
+  }
+  .logo-notifier
+  {
+    float: right;
+    width: 34px;
+    padding-right: 3px;
   }
