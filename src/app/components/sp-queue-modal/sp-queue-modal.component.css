@@ -119,15 +119,19 @@ table tr:last-child td /*To remove the last border*/
 
 .mat-table {
   overflow: auto; 
+  max-height: 500px;
 } 
 /* .mat-table {
   width: 100%;
 }*/
 .example-container {
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
 } 
 .mat-table-sticky {
-    opacity: 1;  
+    opacity: 10;  
 }
 .example-margin {
   margin: 0 12px;

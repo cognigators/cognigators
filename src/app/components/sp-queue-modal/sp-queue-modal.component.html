@@ -8,9 +8,8 @@
     <mat-card>
         <mat-card-content>
             <div class="example-header" fxLayout fxLayoutAlign="end center">
-                <mat-form-field>
-                    <!-- <md-icon mdPrefix>face</md-icon> -->
-                    <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                <mat-form-field class="angularformcss no-line">
+                    <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="Search"> 
                     <!-- <mat-icon matPrefix class="my-icon">sentiment_very_satisfied</mat-icon> -->
                 </mat-form-field>
             </div> 
@@ -29,7 +28,7 @@
                     </mat-header-cell>
                 </ng-container>
                 <ng-container matColumnDef="select">
-                    <mat-header-cell *matHeaderCellDef> <mat-checkbox class="example-margin">Select All</mat-checkbox></mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef> <mat-checkbox class="example-margin" (change)="updateCheck()"  [(ngModel)]="selectAll">Select All</mat-checkbox></mat-header-cell>
                     <mat-cell *matCellDef="let row"> <mat-checkbox class="example-margin"  [(ngModel)] = "row.select" ></mat-checkbox> </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="sp_id">

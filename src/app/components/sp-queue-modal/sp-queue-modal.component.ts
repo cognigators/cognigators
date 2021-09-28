@@ -15,7 +15,7 @@ import { SrDetails } from '../../components/sp-queue-modal/model/SRDetails'
   styleUrls: ['./sp-queue-modal.component.css']
 })
 export class SpQueueModalComponent implements OnInit, AfterViewInit {
-
+  selectAll: boolean = false;
   public filterResultDataSet = new MatTableDataSource<SrDetails>([]);
   public serviceRequestData = new MatTableDataSource<SrDetails>([]);
   public isLoading: boolean = true;
@@ -30,6 +30,7 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getCategoryList();
+    console.log(this.selectAll);
 
   }
 
@@ -63,7 +64,19 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
     this.isLoading = true;
   }
   confirmSR(): any {
+   // this.isLoading = false;
+  //  let filteredSR =  this.filterResultDataSet.data.filter(t=>t.select ===true);
+  this.serviceRequestData.data=  this.filterResultDataSet.data.filter(t=>t.select ===true);
+  if(this.serviceRequestData.data && this.serviceRequestData.data.length>0)
+  {
     this.isLoading = false;
+  }
+  else{
+    this.isLoading = true;
+    alert('Please select atleast One Checkbox to Create the SR');
+  }
+    console.log(this.serviceRequestData.data);
+    
   }
 
   openSPDialog(row): void
@@ -76,6 +89,22 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
                 spCategories : row.s_category_name
             }
     });
+  }
+  updateCheck(){
+    console.log(this.selectAll);
+    if(this.selectAll === true){
+      this.filterResultDataSet.data.map((item)=>{
+        item.select=true;
+      });
+
+    }else {
+      this.filterResultDataSet.data.map((item)=>{
+        item.select=false;
+      });
+    }
+  }
+  createServiceRequest(){
+    this.serviceRequestData.data
   }
 
 }
