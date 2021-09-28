@@ -62,6 +62,7 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
   }
   gridBack(): any {
     this.isLoading = true;
+    this.filterResultDataSet.data=  this.filterResultDataSet.data.filter(t=>t.select ===false);
   }
   confirmSR(): any {
    // this.isLoading = false;
