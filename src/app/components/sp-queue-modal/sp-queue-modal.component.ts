@@ -37,11 +37,14 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.filterResultDataSet.filter = filterValue;
+    this.mySecondTableData.filter = filterValue;
+    
   }
 
   ngAfterViewInit(): void {
     this.filterResultDataSet.paginator = this.paginator;
     this.filterResultDataSet.sort = this.sort;
+    this.mySecondTableData.paginator = this.paginator;
     this.mySecondTableData.sort = this.secondTableSort;
   }
   getCategoryList(): any {
@@ -49,7 +52,8 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
       .subscribe(
         (data: SrDetails[]) => {
           //this.filterResultDataSet=data
-          this.filterResultDataSet.data = data
+          this.filterResultDataSet.data = data;
+          this.mySecondTableData.data = data
         },
         error => {
           console.log(error);
