@@ -69,10 +69,6 @@
                         Service Provider Queue
                     </mat-header-cell>
                 </ng-container>
-                <ng-container matColumnDef="select">
-                    <mat-header-cell *matHeaderCellDef> <mat-checkbox class="example-margin">Select All</mat-checkbox></mat-header-cell>
-                    <mat-cell *matCellDef="let row"> <mat-checkbox class="example-margin" >{{row.select}}</mat-checkbox> </mat-cell>
-                </ng-container>
                 <ng-container matColumnDef="sr_id">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>SR NO</mat-header-cell>
                     <mat-cell *matCellDef="let row"> {{row.sr_id}} </mat-cell>
@@ -127,10 +123,10 @@
                 *matHeaderRowDef="['header-row-first-group'];">
             </mat-header-row>
                 <mat-header-row
-                    *matHeaderRowDef="['select','sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost'];sticky: true">
+                    *matHeaderRowDef="['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost'];sticky: true">
                 </mat-header-row>
                 <mat-row
-                    *matRowDef="let row; let even = even; columns: ['select','sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost']"
+                    *matRowDef="let row; let even = even; columns: ['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost']"
                     [ngClass]="{gray: even}">
                 </mat-row>
             </mat-table>
