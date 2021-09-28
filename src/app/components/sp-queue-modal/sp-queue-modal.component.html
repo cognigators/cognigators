@@ -73,7 +73,7 @@
                     [ngClass]="{gray: even}">
                 </mat-row>
             </mat-table>
-            <mat-table #secondTable #secondTableSort="matSort" [dataSource]="mySecondTableData" [hidden]="isLoading"
+            <mat-table #secondTable #secondTableSort="matSort" [dataSource]="serviceRequestData" [hidden]="isLoading"
                 matSort>
                 <ng-container matColumnDef="header-row-first-group">
                     <mat-header-cell *matHeaderCellDef fxLayoutAlign="space-around center" style="background-color:#00405c;font-size: 14px;color: seashell;">

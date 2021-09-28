@@ -17,7 +17,7 @@ import { SrDetails } from '../../components/sp-queue-modal/model/SRDetails'
 export class SpQueueModalComponent implements OnInit, AfterViewInit {
 
   public filterResultDataSet = new MatTableDataSource<SrDetails>([]);
-  public mySecondTableData = new MatTableDataSource<SrDetails>([]);
+  public serviceRequestData = new MatTableDataSource<SrDetails>([]);
   public isLoading: boolean = true;
   @ViewChild(MatPaginator) private paginator: MatPaginator;
   @ViewChild(MatSort) private sort: MatSort;
@@ -37,15 +37,15 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.filterResultDataSet.filter = filterValue;
-    this.mySecondTableData.filter = filterValue;
+    this.serviceRequestData.filter = filterValue;
     
   }
 
   ngAfterViewInit(): void {
     this.filterResultDataSet.paginator = this.paginator;
     this.filterResultDataSet.sort = this.sort;
-    this.mySecondTableData.paginator = this.paginator;
-    this.mySecondTableData.sort = this.secondTableSort;
+    this.serviceRequestData.paginator = this.paginator;
+    this.serviceRequestData.sort = this.secondTableSort;
   }
   getCategoryList(): any {
     this.apiCallService.getAll('http://localhost:5000/api/ServiceRequest/GetSRQueue/user')
@@ -53,7 +53,7 @@ export class SpQueueModalComponent implements OnInit, AfterViewInit {
         (data: SrDetails[]) => {
           //this.filterResultDataSet=data
           this.filterResultDataSet.data = data;
-          this.mySecondTableData.data = data
+          this.serviceRequestData.data = data
         },
         error => {
           console.log(error);
