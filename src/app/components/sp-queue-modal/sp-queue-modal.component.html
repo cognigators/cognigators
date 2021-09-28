@@ -1,15 +1,26 @@
 <div>
     <app-header></app-header>
 </div>
+<div>&nbsp;</div>
 <div>
+    
 <section >
     <mat-card>
         <mat-card-content>
             <div class="example-header" fxLayout fxLayoutAlign="end center">
                 <mat-form-field>
-                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                    <!-- <md-icon mdPrefix>face</md-icon> -->
+                    <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                    <!-- <mat-icon matPrefix class="my-icon">sentiment_very_satisfied</mat-icon> -->
                 </mat-form-field>
-            </div>
+            </div> 
+            <!-- <div class="form-group">
+                <mat-form-field class="angularformcss no-line " floatLabel="always">
+                    <img matPrefix src="https://image.flaticon.com/icons/png/512/23/23765.png" width="24px" height="24px">
+                    <md-icon mdPrefix>face</md-icon>
+                    <input matInput placeholder="Issue type" (keyup)="applyFilter($event.target.value)" id="issueType">
+                </mat-form-field> 
+            </div>-->
             <div class="example-container mat-elevation-z8">
             <mat-table #firstTable #firstTableSort="matSort" class="mat-elevation-z8" [dataSource]="filterResultDataSet" [hidden]="!isLoading" matSort>
                 <ng-container matColumnDef="header-row-first-group">
@@ -19,7 +30,7 @@
                 </ng-container>
                 <ng-container matColumnDef="select">
                     <mat-header-cell *matHeaderCellDef> <mat-checkbox class="example-margin">Select All</mat-checkbox></mat-header-cell>
-                    <mat-cell *matCellDef="let row"> <mat-checkbox class="example-margin" >{{row.select}}</mat-checkbox> </mat-cell>
+                    <mat-cell *matCellDef="let row"> <mat-checkbox class="example-margin"  [(ngModel)] = "row.select" ></mat-checkbox> </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="sp_id">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> SP ID </mat-header-cell>
@@ -62,13 +73,17 @@
                     [ngClass]="{gray: even}">
                 </mat-row>
             </mat-table>
-            <mat-table #secondTable #secondTableSort="matSort" [dataSource]="filterResultDataSet" [hidden]="isLoading"
+            <mat-table #secondTable #secondTableSort="matSort" [dataSource]="serviceRequestData" [hidden]="isLoading"
                 matSort>
                 <ng-container matColumnDef="header-row-first-group">
                     <mat-header-cell *matHeaderCellDef fxLayoutAlign="space-around center" style="background-color:#00405c;font-size: 14px;color: seashell;">
                         Service Provider Queue
                     </mat-header-cell>
                 </ng-container>
+                <!-- <ng-container matColumnDef="select">
+                    <mat-header-cell *matHeaderCellDef> <mat-checkbox class="example-margin">Select All</mat-checkbox></mat-header-cell>
+                    <mat-cell *matCellDef="let row"> <mat-checkbox class="example-margin" >{{row.select}}</mat-checkbox> </mat-cell>
+                </ng-container> -->
                 <ng-container matColumnDef="sr_id">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>SR NO</mat-header-cell>
                     <mat-cell *matCellDef="let row"> {{row.sr_id}} </mat-cell>
@@ -89,10 +104,8 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Rating </mat-header-cell>
                     <mat-cell *matCellDef="let row"> {{row.sp_rating}} </mat-cell>
                 </ng-container>
-
                 <ng-container matColumnDef="misc_cost">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Service&nbsp;Rate in&nbsp;Rs.</mat-header-cell>
-                    <!-- <mat-cell *matCellDef="let row"> &#8377;{{row.misc_cost}} </mat-cell> -->
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Service Rate in Rs.</mat-header-cell>
                     <mat-cell *matCellDef="let row"> {{row.misc_cost}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="s_category_name">
@@ -100,11 +113,10 @@
                     <mat-cell *matCellDef="let row"> {{row.s_category_name}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="s_subcategory_name">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Sub.Cat Name </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Sub&nbsp;Category Name </mat-header-cell>
                     <mat-cell *matCellDef="let row"> {{row.s_subcategory_name}} </mat-cell>
                 </ng-container>
-
-                <ng-container matColumnDef="time_in">
+                <!-- <ng-container matColumnDef="time_in">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Time In </mat-header-cell>
                     <mat-cell *matCellDef="let row"> {{row.time_in | date:'d/M/yy, h:mm a'}} </mat-cell>
                 </ng-container>
@@ -114,28 +126,38 @@
                 </ng-container>
                 <ng-container matColumnDef="totalCost">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Total&nbsp;Cost in&nbsp;Rs.</mat-header-cell>
-                    <!-- <mat-cell *matCellDef="let row"> &#8377;{{row.totalCost}} </mat-cell> -->
                     <mat-cell *matCellDef="let row"> {{row.totalCost}} </mat-cell>
-                </ng-container>
+                </ng-container> -->
 
                 <!-- Header and Row Declarations -->
                 <mat-header-row
                 *matHeaderRowDef="['header-row-first-group'];">
             </mat-header-row>
+<<<<<<< HEAD
                 <mat-header-row
+=======
+                <!-- <mat-header-row
+>>>>>>> 498095d47db66925522680e22f9a68c27209b3dd
                     *matHeaderRowDef="['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost'];sticky: true">
                 </mat-header-row>
                 <mat-row
                     *matRowDef="let row; let even = even; columns: ['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name','time_in','time_out','totalCost']"
                     [ngClass]="{gray: even}">
-                </mat-row>
+                </mat-row> -->
+                <mat-header-row
+                *matHeaderRowDef="['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name'];sticky: true">
+            </mat-header-row>
+            <mat-row
+                *matRowDef="let row; let even = even; columns: ['sr_id','sp_id', 'sp_name', 'sp_rating','misc_cost','s_category_name','s_subcategory_name']"
+                [ngClass]="{gray: even}">
+            </mat-row>
             </mat-table>
         </div>
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-            <div>&nbsp;</div>
+            <!-- <div>&nbsp;</div> -->
             <div style="align-items: center;">
-                <button mat-raised-button color="Basic" (click)="gridBack()"> Back to Queue</button> &nbsp;&nbsp;
-                <button mat-flat-button color="primary" (click)="confirmSR()">Confirm SR</button>
+                <button mat-raised-button color="primary" (click)="gridBack()" [hidden]="isLoading"> Back to Queue</button> &nbsp;&nbsp;
+                <button mat-flat-button color="primary" (click)="confirmSR()" [hidden]="!isLoading">Confirm SR</button>
 
             </div>
         </mat-card-content>
